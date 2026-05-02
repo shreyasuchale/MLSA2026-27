@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Study App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📚 Flashcard Study App</h1>
+            <div class="stats">
+                <span class="stat-item">Total: <strong id="totalCards">0</strong></span>
+                <span class="stat-item">✓ Correct: <strong id="correctCount">0</strong></span>
+                <span class="stat-item">✗ Incorrect: <strong id="incorrectCount">0</strong></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar - Add Flashcard Form -->
+            <aside class="sidebar">
+                <h2>Add Flashcard</h2>
+                <form id="addCardForm" class="card-form">
+                    <div class="form-group">
+                        <label for="question">Question:</label>
+                        <input type="text" id="question" placeholder="Enter question" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="answer">Answer:</label>
+                        <textarea id="answer" placeholder="Enter answer" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" placeholder="e.g., Biology, History">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Card</button>
+                </form>
+
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <h3>Filter by Category</h3>
+                    <div id="categoryFilter" class="category-buttons">
+                        <button class="category-btn active" data-category="all">All</button>
+                    </div>
+                </div>
+
+                <!-- Clear Data Button -->
+                <button id="clearDataBtn" class="btn btn-danger btn-small">Clear All Data</button>
+            </aside>
+
+            <!-- Study Area -->
+            <section class="study-area">
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state">
+                    <p>No flashcards yet! Create one to get started.</p>
+                </div>
+
+                <!-- Flashcard Display -->
+                <div id="cardContainer" class="card-container hidden">
+                    <!-- Flip Card -->
+                    <div class="flashcard-wrapper">
+                        <div id="flashcard" class="flashcard">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h2 id="questionText">Question</h2>
+                                </div>
+                                <div class="flashcard-back">
+                                    <p id="answerText">Answer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Info -->
+                    <div class="card-info">
+                        <span id="cardNumber">1 / 1</span>
+                        <span id="cardCategory" class="category-badge">Category</span>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="controls">
+                        <!-- Flip Button -->
+                        <button id="flipBtn" class="btn btn-secondary">Flip Card</button>
+
+                        <!-- Mark Buttons -->
+                        <div class="mark-buttons">
+                            <button id="unknownBtn" class="btn btn-warning">❌ Unknown</button>
+                            <button id="knownBtn" class="btn btn-success">✓ Known</button>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="navigation">
+                            <button id="prevBtn" class="btn btn-nav">← Previous</button>
+                            <button id="nextBtn" class="btn btn-nav">Next →</button>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button id="shuffleBtn" class="btn btn-info">🔀 Shuffle</button>
+                            <button id="resetScoreBtn" class="btn btn-warning btn-small">Reset Score</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
